@@ -136,11 +136,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT = os.path.join(BASE_DIR, '/static')
 # STATIC_URL = '/static/'
 #
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, '/static/css'),
-#     # os.path.join(BASE_DIR, '/static/js'),
-#     # os.path.join(BASE_DIR, '/static/images'),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '/staticfiles/css'),
+    # os.path.join(BASE_DIR, '/static/js'),
+    # os.path.join(BASE_DIR, '/static/images'),
+)
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
