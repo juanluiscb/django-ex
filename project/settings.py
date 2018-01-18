@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mundialito.taz.com','*',]
 
 
 # Application definition
@@ -63,7 +63,11 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR,'templates'),
+            os.path.join(BASE_DIR,'templates/main'),
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,16 +89,7 @@ WSGI_APPLICATION = 'wsgi.application'
 from . import database
 
 DATABASES = {
-    'default': database.config(),
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-    #     'NAME': 'mundialito',                      # Or path to database file if using sqlite3.
-    #     'USER': 'mundialito',                      # Not used with sqlite3.
-    #     'PASSWORD': 'fjx0wtmoTDJ4',                  # Not used with sqlite3.
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '5432',                       #port mysql.
-    #     #'PORT': '5432',                      #port postgres
-    # }
+    'default': database.config()
 }
 
 
@@ -134,8 +129,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#
+# STATIC_ROOT = os.path.join(BASE_DIR, '/static')
+# STATIC_URL = '/static/'
+#
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, '/static/css'),
+#     # os.path.join(BASE_DIR, '/static/js'),
+#     # os.path.join(BASE_DIR, '/static/images'),
+# )
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
