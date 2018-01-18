@@ -85,7 +85,16 @@ WSGI_APPLICATION = 'wsgi.application'
 from . import database
 
 DATABASES = {
-    'default': database.config()
+    'default': database.config(),
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+    #     'NAME': 'mundialito',                      # Or path to database file if using sqlite3.
+    #     'USER': 'mundialito',                      # Not used with sqlite3.
+    #     'PASSWORD': 'fjx0wtmoTDJ4',                  # Not used with sqlite3.
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '5432',                       #port mysql.
+    #     #'PORT': '5432',                      #port postgres
+    # }
 }
 
 
@@ -111,9 +120,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es_MX'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
