@@ -3,7 +3,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 # from welcome.views import index, health
-from Tablero.views import index
+from Tablero.views import index,ListaEquipos
 
 urlpatterns = [
     # Examples:
@@ -12,6 +12,7 @@ urlpatterns = [
 
     url(r'^$', index, name='inicio'),
     # url(r'^health$', health),
+    url(r'^equipos/', ListaEquipos, name='equipos'),
     url(r'^admin/', include(admin.site.urls,)),
 ]
 

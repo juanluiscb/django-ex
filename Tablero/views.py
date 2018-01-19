@@ -14,3 +14,7 @@ contexto = {
 
 def index(request):
     return render(request,'base.html',contexto)
+
+def ListaEquipos(request):
+    equipos = {'Mexico','Brasil','Alemania','Inglaterra',}
+    return render(request,'base.html',{'equipos':equipos})
