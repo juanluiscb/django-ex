@@ -18,7 +18,7 @@ def index(request):
     return render(request,'base.html',contexto)
 
 def ListaEquipos(request):
-    tblGruposEquipos = TBLGrupoEquipos(GrupoEquipos.objects.all())
+    tblGruposEquipos = TBLGrupoEquipos(GrupoEquipos.objects.all().order_by('grupo__nombre','equipo__nombre'))
 
     contexto['tabla'] = tblGruposEquipos
     contexto.update(csrf(request))

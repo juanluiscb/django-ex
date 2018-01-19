@@ -8,3 +8,5 @@ class TBLGrupoEquipos(tables.Table):
     class Meta:
         model = GrupoEquipos
         attrs = {'class': 'table table-responsive'}
+        fields = {'equipo','grupo'}
+        sequence = ('equipo','grupo',)
