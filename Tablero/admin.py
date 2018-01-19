@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from import_export.admin import ImportExportModelAdmin, ImportExportActionModelAdmin
 from django.contrib import admin
 
 from Tablero.models import Equipo,Grupo,GrupoEquipos,Estadio,Encuentro,\
     TablaGeneral,Quiniela
 
-class EquipoAdmin(admin.ModelAdmin):
+class EquipoAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('nombre','continente',)
     search_fields = ('nombre',)
     ordering = ('nombre',)

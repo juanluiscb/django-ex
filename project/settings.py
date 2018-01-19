@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'welcome',
     'bootstrap3',
-    
+    'import_export',
     'Tablero'
 ]
 
