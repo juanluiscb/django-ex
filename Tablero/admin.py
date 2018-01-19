@@ -18,19 +18,19 @@ class GrupoEquipoInLine(admin.TabularInline):
     model = GrupoEquipos
     extra = 0
 
-class GrupoAdmin(admin.ModelAdmin):
+class GrupoAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('descripcion',)
     inlines = [GrupoEquipoInLine,]
     ordering = ('nombre',)
 
 admin.site.register(Grupo,GrupoAdmin)
 
-class EstadioAdmin(admin.ModelAdmin):
+class EstadioAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     pass
 
 admin.site.register(Estadio,EstadioAdmin)
 
-class EncuentroAdmin(admin.ModelAdmin):
+class EncuentroAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('equipo1','gol_equipo1','equipo2','gol_equipo2','finalizado','fecha_encuentro','estadio',)
     list_display_links = ('equipo1','equipo2','fecha_encuentro','estadio',)
     list_editable = ('gol_equipo1','gol_equipo2','finalizado')
@@ -40,7 +40,7 @@ class EncuentroAdmin(admin.ModelAdmin):
 
 admin.site.register(Encuentro,EncuentroAdmin)
 
-class TablaGeneralAdmin(admin.ModelAdmin):
+class TablaGeneralAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('equipo','puntos','pj','pg','pe','pp','gf','gc','dif',)
     ordering = ('-puntos','-dif','equipo','pj',)
 
