@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import User
 from django.db import models
-
+from django.utils.html import format_html
 
 CHOISE_CONTINENTE = (
     ('AMERICA', 'AMERICA'),
@@ -51,6 +51,11 @@ class GrupoEquipos(models.Model):
     def __str__(self):
         return "{} - {}".format(self.equipo,self.grupo)
 
+    def btnVerEncuentros(self):
+        return format_html(
+            '<a href="/encuentros-equipo/?equipo_id={}">Ver Encuentros</a>', self.equipo.id
+        )
+
 class Estadio(models.Model):
     nombre_estadio = models.CharField(max_length=250)
     localidad = models.CharField(max_length=250, blank=True)
@@ -64,8 +69,8 @@ class Estadio(models.Model):
 
 
 class Encuentro(models.Model):
-    equipo1 = models.ForeignKey('Equipo', related_name='Equipo1')
-    equipo2 = models.ForeignKey('Equipo', related_name='Equipo2')
+    equipo1 = models.ForeignKey('Equipo', related_name='Equipo1',verbose_name="Equipo1")
+    equipo2 = models.ForeignKey('Equipo', related_name='Equipo2',verbose_name="Equipo2")
     estadio = models.ForeignKey('Estadio')
     gol_equipo1 = models.IntegerField(default=0)
     gol_equipo2 = models.IntegerField(default=0)
