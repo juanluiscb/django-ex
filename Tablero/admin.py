@@ -52,3 +52,8 @@ class QuinielaAdmin(admin.ModelAdmin):
 
 admin.site.register(Quiniela,QuinielaAdmin)
 
+admin.site.site_title = ':: Mundialito Rusia 2018'
+admin.site.site_header = ':: Mundialito Rusia 2018'
+admin.site.index_title = ':: Panel del Mundialito Rusia 2018'
+
+
