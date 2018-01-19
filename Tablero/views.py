@@ -2,8 +2,10 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.template.context_processors import csrf
 
-# Create your views here.
+from Tablero.Tables import TBLGrupoEquipos
+from Tablero.models import GrupoEquipos
 
 title = ":: Mundialito Rusia 2018"
 titulo = ":: Mundialito Rusia 2018"
@@ -16,5 +18,9 @@ def index(request):
     return render(request,'base.html',contexto)
 
 def ListaEquipos(request):
-    equipos = {'Mexico','Brasil','Alemania','Inglaterra',}
-    return render(request,'base.html',{'equipos':equipos})
+    tblGruposEquipos = TBLGrupoEquipos(GrupoEquipos.objects.all())
+
+    contexto['tabla'] = tblGruposEquipos
+    contexto.update(csrf(request))
+
+    return render(request,'tablero_lista_grupos_equipos.html',contexto)

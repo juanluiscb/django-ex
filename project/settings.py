@@ -43,9 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+
     'welcome',
     'bootstrap3',
     'import_export',
+    'django_tables2',
+    
     'Tablero'
 ]
 

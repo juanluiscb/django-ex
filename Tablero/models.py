@@ -40,12 +40,16 @@ class Grupo(models.Model):
     nombre = models.CharField(max_length=20)
     descripcion = models.CharField(max_length=80, help_text='Descripcion del Grupo')
 
+    def __str__(self):
+        return self.descripcion
 
 class GrupoEquipos(models.Model):
     equipo = models.ForeignKey('Equipo')
     grupo = models.ForeignKey('Grupo')
     posicion = models.IntegerField(default=0)
 
+    def __str__(self):
+        return "{} - {}".format(self.equipo,self.grupo)
 
 class Estadio(models.Model):
     nombre_estadio = models.CharField(max_length=250)

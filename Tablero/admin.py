@@ -51,3 +51,4 @@ class QuinielaAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(Quiniela,QuinielaAdmin)
+

@@ -19,15 +19,20 @@
 </head>
 
 <body>
-{% block bootstrap3 %}
-    <div class="container">
+<div class="container">
+    {% block menu %}
         {% include "menu.html" %}
+    {% endblock menu %}
+    {% block bootstrap3 %}
         {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
 
-        {% block content %}(no content){% endblock %}
-    </div>
-{% endblock bootstrap3 %}
-{% if not 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
-{% block bootstrap3_extra_script %}{% endblock %}
+        {% block content %}
+            (no content)
+        {% endblock %}
+
+    {% endblock bootstrap3 %}
+    {% if not 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+    {% block bootstrap3_extra_script %}{% endblock %}
+</div>
 </body>
 
